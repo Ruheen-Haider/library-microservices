@@ -20,5 +20,5 @@ jobs:
 
       - name: Push user-service
         run: 
-         docker push ghcr.io/ruheen-haider/library-microservices/user_service:latest
+         docker push ghcr.io/ruheen-haider/library-microservices/user-service:latest
       

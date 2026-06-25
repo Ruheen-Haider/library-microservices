@@ -1,0 +1,24 @@
+name: Build and Push Docker Image
+
+on:
+ push: 
+    branches: 
+      - main
+
+jobs:
+  build-user:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN}}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build user-service
+        run:
+         docker build -t ghcr.io/ruheen-haider/library-microservices/user-service:latest ./user_service
+
+      - name: Push user-service
+        run: 
+         docker push ghcr.io/ruheen-haider/library-microservices/user_service:latest
+      

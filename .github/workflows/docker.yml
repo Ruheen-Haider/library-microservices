@@ -21,4 +21,51 @@ jobs:
       - name: Push user-service
         run: 
          docker push ghcr.io/ruheen-haider/user-service:latest
-      
+
+  build-library:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to GHCR
+        run: echo "${{ secrets.GHCR_TOKEN}}" | docker login ghcr.io -u RUHEEN-HAIDER --password-stdin
+
+      - name: Build library-service
+        run:
+         docker build -t ghcr.io/ruheen-haider/library-service:latest ./library-service
+
+      - name: Push library-service
+        run: 
+         docker push ghcr.io/ruheen-haider/library-service:latest
+       
+   build-borrow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to GHCR
+        run: echo "${{ secrets.GHCR_TOKEN}}" | docker login ghcr.io -u RUHEEN-HAIDER --password-stdin
+
+      - name: Build borrow-service
+        run:
+         docker build -t ghcr.io/ruheen-haider/borrow-service:latest ./borrow-service
+
+      - name: Push borrow-service
+        run: 
+         docker push ghcr.io/ruheen-haider/borrow-service:latest  
+
+    build-gateway:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to GHCR
+        run: echo "${{ secrets.GHCR_TOKEN}}" | docker login ghcr.io -u RUHEEN-HAIDER --password-stdin
+
+      - name: Build api-gateway
+        run:
+         docker build -t ghcr.io/ruheen-haider/api-gateway:latest ./api-gateway
+
+      - name: Push api-gateway
+        run: 
+         docker push ghcr.io/ruheen-haider/api-gateway:latest       

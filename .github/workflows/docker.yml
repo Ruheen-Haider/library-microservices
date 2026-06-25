@@ -14,11 +14,11 @@ jobs:
       - name: Login to GHCR
         run: echo "${{ secrets.GITHUB_TOKEN}}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build user_service
+      - name: Build user-service
         run:
-         docker build -t ghcr.io/${{ github.repository }}/user_service:latest ./user_service
+         docker build -t ghcr.io/ruheen-haider/library-microservices/user-service:latest ./user-service
 
-      - name: Push user_service
+      - name: Push user-service
         run: 
-         docker push ghcr.io/${{ github.repository }}/user_service:latest
+         docker push ghcr.io/ruheen-haider/library-microservices/user_service:latest
       

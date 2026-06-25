@@ -16,9 +16,9 @@ jobs:
 
       - name: Build user-service
         run:
-         docker build -t ghcr.io/ruheen-haider/library-microservices/user-service:latest ./user_service
+         docker build -t ghcr.io/ruheen-haider/user-service:latest ./user_service
 
       - name: Push user-service
         run: 
-         docker push ghcr.io/ruheen-haider/library-microservices/user-service:latest
+         docker push ghcr.io/ruheen-haider/user-service:latest
       

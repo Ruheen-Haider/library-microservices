@@ -36,3 +36,5 @@ spring:
           uri: http://borrow-service:8083
           predicates:
             - Path=/borrow/**
+
+# force rebuild            
